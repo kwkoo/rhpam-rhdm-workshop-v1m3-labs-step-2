@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<bpmn2:definitions xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://www.omg.org/bpmn20" xmlns:bpmn2="http://www.omg.org/spec/BPMN/20100524/MODEL" xmlns:bpmndi="http://www.omg.org/spec/BPMN/20100524/DI" xmlns:bpsim="http://www.bpsim.org/schemas/1.0" xmlns:drools="http://www.jboss.org/drools" id="_haTn4G02EeqC4tew9pk_ng" xsi:schemaLocation="http://www.omg.org/spec/BPMN/20100524/MODEL BPMN20.xsd http://www.jboss.org/drools drools.xsd http://www.bpsim.org/schemas/1.0 bpsim.xsd http://www.omg.org/spec/DD/20100524/DC DC.xsd http://www.omg.org/spec/DD/20100524/DI DI.xsd " exporter="jBPM Process Modeler" exporterVersion="2.0" targetNamespace="http://www.omg.org/bpmn20">
+  <bpmn2:itemDefinition id="_caseFile_customerStatusItem" structureRef="String"/>
+  <bpmn2:itemDefinition id="_caseFile_totalFraudAmountItem" structureRef="String"/>
+  <bpmn2:itemDefinition id="_caseFile_fraudDataItem" structureRef="com.myspace.ccd_project.FraudData"/>
+  <bpmn2:itemDefinition id="_caseFile_approvedChargebackItem" structureRef="Boolean"/>
+  <bpmn2:itemDefinition id="_caseFile_customerAgeItem" structureRef="Integer"/>
+  <bpmn2:itemDefinition id="_caseFile_incidentCountItem" structureRef="Integer"/>
+  <bpmn2:itemDefinition id="_caseFile_creditCardHolderItem" structureRef="com.myspace.ccd_project.CreditCardHolder"/>
+  <bpmn2:itemDefinition id="_caseFile_managerApprovalItem" structureRef="Boolean"/>
+  <bpmn2:itemDefinition id="_caseFile_managerReasonItem" structureRef="String"/>
+  <bpmn2:itemDefinition id="_caseFile_customerDocCompletedItem" structureRef="Boolean"/>
+  <bpmn2:itemDefinition id="_caseFile_vendorDocCompletedItem" structureRef="Boolean"/>
+  <bpmn2:itemDefinition id="_caseFile_vendorDocItem" structureRef="org.jbpm.document.Document"/>
+  <bpmn2:itemDefinition id="_caseFile_customerDocItem" structureRef="org.jbpm.document.Document"/>
+  <bpmn2:itemDefinition id="_caseFile_vendorDocRequiredItem" structureRef="Boolean"/>
+  <bpmn2:itemDefinition id="_caseFile_managerApprovalReasonItem" structureRef="String"/>
+  <bpmn2:itemDefinition id="_caseFile_caseTypeItem" structureRef="String"/>
+  <bpmn2:process id="src.ChargeDispute" drools:packageName="com.myspace.ccd_project" drools:version="1.0" drools:adHoc="true" name="ChargeDispute" isExecutable="true">
+    <bpmn2:extensionElements>
+      <drools:metaData name="customCaseIdPrefix">
+        <drools:metaValue><![CDATA[CASE]]></drools:metaValue>
+      </drools:metaData>
+      <drools:metaData name="customCaseRoles">
+        <drools:metaValue><![CDATA[owner:1,approval-manager:1]]></drools:metaValue>
+      </drools:metaData>
+    </bpmn2:extensionElements>
+    <bpmn2:property id="caseFile_customerStatus" itemSubjectRef="_caseFile_customerStatusItem" name="caseFile_customerStatus"/>
+    <bpmn2:property id="caseFile_totalFraudAmount" itemSubjectRef="_caseFile_totalFraudAmountItem" name="caseFile_totalFraudAmount"/>
+    <bpmn2:property id="caseFile_fraudData" itemSubjectRef="_caseFile_fraudDataItem" name="caseFile_fraudData"/>
+    <bpmn2:property id="caseFile_approvedChargeback" itemSubjectRef="_caseFile_approvedChargebackItem" name="caseFile_approvedChargeback"/>
+    <bpmn2:property id="caseFile_customerAge" itemSubjectRef="_caseFile_customerAgeItem" name="caseFile_customerAge"/>
+    <bpmn2:property id="caseFile_incidentCount" itemSubjectRef="_caseFile_incidentCountItem" name="caseFile_incidentCount"/>
+    <bpmn2:property id="caseFile_creditCardHolder" itemSubjectRef="_caseFile_creditCardHolderItem" name="caseFile_creditCardHolder"/>
+    <bpmn2:property id="caseFile_managerApproval" itemSubjectRef="_caseFile_managerApprovalItem" name="caseFile_managerApproval"/>
+    <bpmn2:property id="caseFile_managerReason" itemSubjectRef="_caseFile_managerReasonItem" name="caseFile_managerReason"/>
+    <bpmn2:property id="caseFile_customerDocCompleted" itemSubjectRef="_caseFile_customerDocCompletedItem" name="caseFile_customerDocCompleted"/>
+    <bpmn2:property id="caseFile_vendorDocCompleted" itemSubjectRef="_caseFile_vendorDocCompletedItem" name="caseFile_vendorDocCompleted"/>
+    <bpmn2:property id="caseFile_vendorDoc" itemSubjectRef="_caseFile_vendorDocItem" name="caseFile_vendorDoc"/>
+    <bpmn2:property id="caseFile_customerDoc" itemSubjectRef="_caseFile_customerDocItem" name="caseFile_customerDoc"/>
+    <bpmn2:property id="caseFile_vendorDocRequired" itemSubjectRef="_caseFile_vendorDocRequiredItem" name="caseFile_vendorDocRequired"/>
+    <bpmn2:property id="caseFile_managerApprovalReason" itemSubjectRef="_caseFile_managerApprovalReasonItem" name="caseFile_managerApprovalReason"/>
+    <bpmn2:property id="caseFile_caseType" itemSubjectRef="_caseFile_caseTypeItem" name="caseFile_caseType"/>
+  </bpmn2:process>
+  <bpmndi:BPMNDiagram id="_haTn4W02EeqC4tew9pk_ng">
+    <bpmndi:BPMNPlane id="_haTn4m02EeqC4tew9pk_ng" bpmnElement="src.ChargeDispute"/>
+  </bpmndi:BPMNDiagram>
+  <bpmn2:relationship id="_haTn4202EeqC4tew9pk_ng" type="BPSimData">
+    <bpmn2:extensionElements>
+      <bpsim:BPSimData>
+        <bpsim:Scenario xsi:type="bpsim:Scenario" id="default" name="Simulationscenario">
+          <bpsim:ScenarioParameters xsi:type="bpsim:ScenarioParameters"/>
+        </bpsim:Scenario>
+      </bpsim:BPSimData>
+    </bpmn2:extensionElements>
+    <bpmn2:source>_haTn4G02EeqC4tew9pk_ng</bpmn2:source>
+    <bpmn2:target>_haTn4G02EeqC4tew9pk_ng</bpmn2:target>
+  </bpmn2:relationship>
+</bpmn2:definitions>
